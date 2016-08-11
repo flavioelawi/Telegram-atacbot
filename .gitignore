@@ -3,6 +3,7 @@ include
 local
 lib
 *.pyc
+.cache
 *.json
 config.ini
 Scripts
