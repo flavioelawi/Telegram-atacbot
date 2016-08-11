@@ -1,0 +1,14 @@
+bin
+include
+local
+lib
+*.pyc
+*.json
+config.ini
+Scripts
+Lib
+Include
+config.ini
+tests.py
+*.log
+.idea
