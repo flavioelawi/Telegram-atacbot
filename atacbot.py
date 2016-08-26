@@ -59,7 +59,7 @@ def credits(message):
 	st = getTimestamp()
 	try:
 		credit = "Bot creato da Flavio Elawi, utilizzatore mezzi Atac\n"
-		credit += "https://github.com/flavioelawi/atac-cli\n"
+		credit += "https://github.com/flavioelawi/Telegram-atacbot\n"
 		logging.info(st + ' ' + message.from_user.username + ' ' + message.text)
 		bot.send_message(message.chat.id, credit)
 	except:
