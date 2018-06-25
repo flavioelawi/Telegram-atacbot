@@ -13,3 +13,6 @@ config.ini
 tests.py
 *.log
 .idea
+*.egg-info
+dist
+build
