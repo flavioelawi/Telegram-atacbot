@@ -43,7 +43,7 @@ setup(
     classifiers=classifiers,
     entry_points={
     'console_scripts': [
-        'atacbot = atacbot.atacbot:main'
+        'atacbot = atacbot.atacbot:bot.polling'
         ]
     }
 )

@@ -7,12 +7,14 @@ except ImportError:
     from xmlrpc.client import Server
     import configparser as cp
 
+import os
 import logging
 
 class ataclib:
     def __init__(self):
         config = cp.RawConfigParser()
-        config.read('config.ini')
+        config_ini = os.path.join(os.path.expanduser("~"), "config.ini")
+        config.read(config_ini)
         atac_key = config.get('atackey', 'atac_key')
         ####### INSERT DEV KEY IN config.ini HERE ################
         ####### [atackey]
