@@ -15,7 +15,7 @@ config_ini = os.path.join(os.path.expanduser("~"), "config.ini")
 config.read(config_ini)
 telegram_key = config.get('telegramkey','telegramkey')
 bot = telebot.TeleBot(telegram_key)
-logging.basicConfig(filename='atacbot.log',level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 logging.getLogger("requests").setLevel(logging.WARNING)
 
 def getTimestamp():
