@@ -94,4 +94,4 @@ def get_palina(message):
         bot.reply_to(message, "Errore interno")
 
 if __name__ == '__main__':
-    bot.polling(none_stop=False)
+    bot.polling(none_stop=True)
