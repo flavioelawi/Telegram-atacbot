@@ -1,19 +1,14 @@
-try:
-    # Python 2 import
-    import ConfigParser as cp
-except:
-    import configparser as cp
-
+import json
 import telebot
 import logging,time,datetime
 from telebot import types
 from atacbot.ataclib import ataclib
 import os
 
-config = cp.RawConfigParser()
-config_ini = os.path.join(os.path.expanduser("~"), "config.ini")
-config.read(config_ini)
-telegram_key = config.get('telegramkey','telegramkey')
+configfile_path = os.path.join(os.path.expanduser("~"), ".atacbot", "config.json")
+c = open(configfile_path, "r")
+config = json.load(c)
+telegram_key = config["telegramkey"]
 bot = telebot.TeleBot(telegram_key)
 logging.basicConfig(level=logging.INFO)
 logging.getLogger("requests").setLevel(logging.WARNING)
@@ -26,9 +21,7 @@ def getTimestamp():
 def put_linea(message):
     try:
         atac = ataclib()
-
         risposta=atac.getPercorso(message.text)
-
         risposta=risposta.replace("<-------",u'\U0001F68C')
         bot.send_message(message.chat.id,risposta,parse_mode="Markdown")
     except Exception as e:
@@ -93,5 +86,8 @@ def get_palina(message):
     except:
         bot.reply_to(message, "Errore interno")
 
-if __name__ == '__main__':
+def start():
     bot.polling(none_stop=True)
+
+if __name__ == '__main__':
+    start()

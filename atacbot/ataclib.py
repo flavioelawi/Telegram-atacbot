@@ -1,21 +1,14 @@
-try:
-    # Python 2 import
-    from xmlrpclib import Server
-    import ConfigParser as cp
-except ImportError:
-    # Python 3 import
-    from xmlrpc.client import Server
-    import configparser as cp
-
+from xmlrpc.client import Server
+import json
 import os
 import logging
 
 class ataclib:
     def __init__(self):
-        config = cp.RawConfigParser()
-        config_ini = os.path.join(os.path.expanduser("~"), "config.ini")
-        config.read(config_ini)
-        atac_key = config.get('atackey', 'atac_key')
+        configfile_path = os.path.join(os.path.expanduser("~"), ".atacbot", "config.json")
+        c = open(configfile_path, "r")
+        config = json.load(c)
+        atac_key = config["atackey"]
         ####### INSERT DEV KEY IN config.ini HERE ################
         ####### [atackey]
         ####### atac_key=KEY
