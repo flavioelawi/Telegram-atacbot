@@ -43,6 +43,6 @@ setup(
     version='0.1.0',
     zip_safe=False,
     entry_points = {
-        'console_scripts': ['atacbot=atacbot.atacbot:start'],
+        'console_scripts': ['atacbot_run=atacbot.atacbot:start'],
     }
 )
